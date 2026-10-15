@@ -1,0 +1,612 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  --blue: #579bc8;
+  --blue-deep: #315d78;
+  --blue-soft: #e2f3fc;
+  --blue-pale: #f7fbff;
+  --text: #304653;
+  --muted: #6c7f8d;
+  --white: #ffffff;
+  --line: #dceaf2;
+  --shadow: 0 18px 55px rgba(56, 103, 132, .10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: var(--blue-pale);
+}
+
+a {
+  color: inherit;
+}
+
+/* menu */
+.menu-button {
+  position: fixed;
+  z-index: 30;
+  top: 22px;
+  left: 22px;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #e4edf3;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 5px 18px rgba(49, 93, 120, .10);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-button span {
+  width: 19px;
+  height: 2px;
+  border-radius: 4px;
+  background: var(--blue-deep);
+}
+
+/* side menu */
+.menu-panel {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 360px;
+  max-width: 88vw;
+  padding: 82px 20px 26px;
+  background: white;
+  box-shadow: 14px 0 40px rgba(24, 59, 80, .13);
+  transform: translateX(-110%);
+  transition: transform .28s ease;
+  overflow-y: auto;
+}
+
+.menu-panel.open {
+  transform: translateX(0);
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: 0;
+  background: #f0f7fb;
+  color: var(--blue-deep);
+  border-radius: 12px;
+  width: 38px;
+  height: 38px;
+  font-size: 27px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.menu-heading {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0 0 16px 10px;
+}
+
+.menu-link {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  text-decoration: none;
+  padding: 13px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  margin-bottom: 5px;
+}
+
+.menu-link:hover,
+.menu-link.active {
+  background: #edf7fd;
+  color: var(--blue-deep);
+}
+
+.menu-number {
+  flex: 0 0 28px;
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 11px;
+  padding-top: 2px;
+}
+
+.menu-overlay {
+  position: fixed;
+  z-index: 40;
+  inset: 0;
+  background: rgba(26, 50, 64, .25);
+  opacity: 0;
+  visibility: hidden;
+  transition: .25s;
+}
+
+.menu-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* page cover */
+.cover-body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 15% 10%, #e4f5ff 0, transparent 40%),
+    radial-gradient(ellipse at 90% 90%, #f0eefe 0, transparent 35%),
+    #f7fbff;
+}
+
+.cover {
+  min-height: 100vh;
+  padding: 42px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-card {
+  width: min(100%, 930px);
+  min-height: 690px;
+  background: rgba(255, 255, 255, .95);
+  border: 1px solid rgba(216, 233, 243, .95);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: 35px 54px 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.school-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-bottom: 27px;
+  border-bottom: 1px solid #edf3f7;
+}
+
+/* Adjust logo sizes */
+.logo-placeholder {
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+}
+
+.logo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.school-text {
+  font-family: Georgia, serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #3d4a52;
+}
+
+.school-text .university {
+  font-size: 16px;
+  color: #1f3442;
+}
+
+.cover-main {
+  width: min(100%, 690px);
+  margin: auto;
+  padding: 54px 0 48px;
+}
+
+.eyebrow,
+.page-kicker {
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+}
+
+.cover h1 {
+  margin: 13px 0 18px;
+  font: 700 clamp(37px, 5.5vw, 59px)/1.13 'Playfair Display', Georgia, serif;
+  letter-spacing: -.8px;
+  color: #234c69;
+}
+
+.title-rule {
+  width: 66px;
+  height: 4px;
+  border-radius: 5px;
+  background: var(--blue);
+  margin: 0 0 21px;
+}
+
+.cover-description {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.student-block {
+  margin-top: 36px;
+}
+
+.student-name {
+  color: var(--blue-deep);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: .4px;
+}
+
+.student-course {
+  margin-top: 5px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.instructor-block {
+  margin-top: 24px;
+}
+
+.instructor-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: #304c5e;
+}
+
+.instructor-title {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.cover-footer {
+  padding-top: 16px;
+  border-top: 1px solid #edf3f7;
+  color: #8aa0ad;
+  font-size: 9px;
+  letter-spacing: 1.3px;
+}
+
+/* seminar pages */
+.theme-body {
+  background: linear-gradient(
+    135deg,
+    #f7fbff 0%,
+    #f9fcff 58%,
+    #f3f6ff 100%
+  );
+  min-height: 100vh;
+}
+
+.theme-container {
+  width: min(calc(100% - 40px), 1000px);
+  margin: 0 auto;
+  padding: 88px 0 40px;
+}
+
+.theme-title {
+  margin: 12px 0 13px;
+  max-width: 800px;
+  font: 700 clamp(30px, 4vw, 44px)/1.2 'Playfair Display', Georgia, serif;
+  color: #234c69;
+}
+
+.theme-intro {
+  max-width: 700px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 42px 0 20px;
+}
+
+.section-heading span {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 11px;
+  background: var(--blue-soft);
+  color: var(--blue-deep);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--blue-deep);
+  font-size: 20px;
+}
+
+.seminar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* card */
+.seminar-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 38%) minmax(0, 1fr);
+  gap: 26px;
+  background: white;
+  border: 1px solid #e3edf4;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 28px rgba(56, 103, 132, .06);
+  min-width: 0;
+}
+
+.certificate-frame {
+  min-height: 210px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px dashed #c7deeb;
+  background: #f8fcff;
+}
+
+.certificate-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 290px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+.certificate-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 7px;
+  padding: 15px;
+  color: #6e8a9b;
+}
+
+.certificate-placeholder span {
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 12px;
+  background: #e5f4fc;
+  color: var(--blue);
+  font-size: 24px;
+}
+
+.certificate-placeholder strong {
+  font-size: 12px;
+}
+
+.certificate-placeholder small {
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.seminar-label {
+  color: var(--blue);
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+}
+
+.seminar-details {
+  min-width: 0;
+}
+
+.seminar-details h3 {
+  margin: 8px 0 9px;
+  color: #284e68;
+  font: 700 21px/1.35 'Playfair Display', Georgia, serif;
+  overflow-wrap: anywhere;
+}
+
+.seminar-meta {
+  margin: 0;
+  color: #82939e;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.reflection-heading {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #edf3f7;
+  color: var(--blue-deep);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.reflection {
+  margin: 8px 0 0;
+  color: #5e727f;
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+/* documentation */
+.documentation-section {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #edf3f7;
+  width: 100%;
+  min-width: 0;
+}
+
+.documentation-section h4 {
+  margin: 0 0 12px;
+  color: #315d78;
+  font-size: 13px;
+}
+
+.documentation-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+}
+
+.documentation-gallery figure {
+  min-width: 0;
+  margin: 0;
+  padding: 6px;
+  background: #f7fbff;
+  border: 1px solid #e3edf4;
+  border-radius: 8px;
+}
+
+.documentation-gallery img {
+  display: block;
+  width: 100%;
+  height: 85px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 5px;
+}
+
+.documentation-gallery figcaption {
+  margin-top: 5px;
+  color: #6c7f8d;
+  font-size: 10px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* footer */
+.page-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #e2edf3;
+  color: #8195a1;
+  font-size: 10px;
+}
+
+.page-footer a {
+  color: var(--blue-deep);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.page-footer a:hover {
+  text-decoration: underline;
+}
+
+/* mobile layout */
+@media (max-width: 650px) {
+  .cover {
+    padding: 18px 12px;
+    align-items: flex-start;
+  }
+
+  .cover-card {
+    min-height: calc(100vh - 36px);
+    padding: 25px 22px 18px;
+    border-radius: 17px;
+  }
+
+  .school-header {
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .logo-placeholder {
+    flex-basis: 37px;
+    height: 37px;
+    font-size: 8px;
+  }
+
+  .school-text {
+    font-size: 10px;
+  }
+
+  .school-text .university {
+    font-size: 12px;
+  }
+
+  .cover-main {
+    padding: 62px 0 48px;
+  }
+
+  .cover h1 {
+    font-size: clamp(35px, 10vw, 49px);
+  }
+
+  .cover-description {
+    font-size: 13px;
+  }
+
+  .theme-container {
+    width: min(calc(100% - 28px), 1000px);
+    padding-top: 82px;
+  }
+
+  .seminar-card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 15px;
+  }
+
+  .certificate-frame {
+    min-height: 190px;
+  }
+
+  .seminar-details h3 {
+    font-size: 19px;
+  }
+
+  .page-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* documentation thumbnail */
+@media (max-width: 600px) {
+  .documentation-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .documentation-gallery img {
+    height: 90px;
+  }
+
+}
